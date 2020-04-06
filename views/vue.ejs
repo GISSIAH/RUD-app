@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+ 
+    </head>
+    <style>
+#body{
+background-color: antiquewhite;
+
+}
+#Insert-Table{
+background-color: white;
+
+}
+#Insert-Table th {
+font-family: Lato-Bold;
+font-size: 20px;
+color: #00ad5f;
+line-height: 1.4;
+text-transform: uppercase;
+background-color: #393939;
+}
+#Insert-Table td {
+font-family: Lato-Regular;
+font-size: 15px;
+color: white;
+line-height: 1.4;
+background-color: #222222;
+}
+    </style>
+    <body>
+        <table id="Insert-Table">
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    FACILITY NAME
+                </th>
+                <th>
+                    DISTRICT
+                </th>
+                <th>
+                    FACILITY TYPE
+                </th>
+                <th>
+                   NRU
+                </th>
+                <th>
+                  SFP
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <%= dt.id %>
+                </td>
+                <td>
+                    <%= dt.fac_name %>
+                </td>
+                <td>
+                    <%= dt.district %>
+                </td>
+                <td>
+                    <%= dt.facility %>
+                </td>
+                <td>
+                    <%= dt.nru%>
+                </td>
+                <td>
+                    <%= dt.sfp %>
+                </td>
+            </tr>
+            <form action="/insert" method="POST">
+            <tr>
+                <td>
+                    <input type="text" name="id" value=<%=dt.fid %> >
+                  </td>
+                <td>
+                  <input type="text" name="fac_name" value="" />
+                </td>
+                <td>
+                    <input type="text" name="district" value="" /> 
+                </td>
+                <td>
+                    <input type="text" name="facility" value="" />
+                </td>
+                <td>
+                    <input type="text" name="nru" value="" /> 
+                </td>
+                <td>
+                    <input type="text" name="sfp" value="" />
+                </td>
+            </tr>
+            
+        </table>
+        <input type="submit" value="SUBMIT" />
+        </form>
+    </body>
+</html>
