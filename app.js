@@ -17,7 +17,13 @@ app.get('/home',(req,res)=>{
 app.post('/view',urlencodedparser,(req,res)=>{
     console.log('post view body');
     console.log(req.body);
-    pool.query('SELECT * FROM projectsenu WHERE fid='+req.body.id,(err,rt)=>{
+    var qrystring = 'SELECT * FROM projectsenu WHERE fid='+req.body.id;
+    var tm = 'SELECT fences.geom, fences.desc , cases.dist ,cases.n_cases , t_cases
+FROM
+	fences
+INNER JOIN cases ON fences.desc = cases.dist;'
+    //adding timestamp
+    pool.query(qrystring,(err,rt)=>{
         var r1 = rt.rows[0];
         res.render('vue',{dt:r1});
     });
